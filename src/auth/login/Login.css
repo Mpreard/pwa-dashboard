@@ -1,0 +1,82 @@
+.Container-authentification {
+    background-color: #F7F9FB;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.Row-authentification {
+    width: 30%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.Col-authentification-logo {
+    width: 90%;
+    height: auto;
+}
+
+.Col-authentification-form {
+    background-color: white;
+    flex-direction: column;
+    border-radius: 15px;
+    box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.2);
+    height: auto;
+}
+
+.Col-authentification-sponsor {
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    height: auto;
+}
+
+.Col-authentification-copyright {
+    justify-content: center;
+    height: auto;
+}
+
+.Form-authentification-title {
+    width: 70%;
+    font-size: 1.5rem;
+}
+
+.Form-authentification-element {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.Form-authentification-element > input, .Form-authentification-element > button {
+    width: 70%;
+    padding: 12px 0px;
+}
+
+.Form-authentification-element > button {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: white;
+    border-radius: 5px;
+}
+
+.Form-authentification-label {
+    width: 70%;
+}
+
+.Authentification-images-sponsor {
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 1rem;
+}
+
+.Authentification-images-sponsor > img {
+    width: 100%;
+}
+
+.Col-authentification-logo > img {
+    width: 100%;
+}
