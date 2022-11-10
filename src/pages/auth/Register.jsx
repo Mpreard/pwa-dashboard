@@ -23,7 +23,7 @@ export default function Register({setAuthState, setUser}) {
         <div className="flex w-full h-screen">
             <div className="w-full flex items-center justify-center">
                 <div className=' w-11/12 max-w-[700px] px-10 py-20 rounded-3xl bg-white border-2 border-green-100'>
-                    <h1 className='text-5xl font-bold text-gray-800'>Bonjour et bienvenu !</h1>
+                    <h1 className='text-5xl font-bold text-gray-800'>Bonjour et bienvenue !</h1>
                     <p className='font-medium text-lg text-gray-500 mt-4'>Veuillez saisir les informations de connexions
                         souhaitées !</p>
                     <div className='mt-8'>
