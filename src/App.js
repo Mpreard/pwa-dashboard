@@ -1,36 +1,35 @@
-import './App.css';
-import {useEffect, useState} from "react";
+import * as React from 'react';
+import Login from "./pages/auth/Login";
+import Register from "./pages/auth/Register";
+import Home from './pages/Home';
 import {auth} from './firebase';
-import {onAuthStateChanged} from 'firebase/auth';
-import Login from "./auth/login/Login";
-import Register from "./auth/register/Register";
-import Home from "./pages/Home";
+import {onAuthStateChanged} from 'firebase/auth'
+import Navbar from './components/Navbar/Navbar';
 
 function App() {
-    const [user, setUser] = useState(null)
-    const [authState, setAuthState] = useState(null)
+    const [user, setUser] = React.useState(null);
+    const [authState, setAuthState] = React.useState(null)
 
-    useEffect(() => {
+    React.useEffect(() => {
         return onAuthStateChanged(auth,
-                async authenticateUser => {
-                    if (authenticateUser) {
-                        setUser(authenticateUser.email)
-                        setAuthState('home')
-                    } else {
-                        setUser(null)
-                        setAuthState('login')
-                    }
-                })
-        }, [user]
-    )
+            async authenticatedUser => {
+                if (authenticatedUser) {
+                    setUser(authenticatedUser.email)
+                    setAuthState('home');
+                } else {
+                    setUser(null);
+                    setAuthState('login')
+                }
+            });
+    }, [user])
 
-    if(authState === 'login') return <Login setUser={setUser} setAuthState={setAuthState}/>
-    if(authState === 'register') return <Register setUser={setUser} setAuthState={setAuthState}/>
-
-    return <Home />
-/*
-    if(authState === null) return <div>loading....</div>
-    if(user) return <Home user={user} setUser={setUser} setAuthState={setAuthState}/> */
+    if (!user && authState === 'login') {
+        return <div><Login setAuthState={setAuthState} setUser={setUser}/></div>
+    } else if (!user && authState === 'register') {
+        return <div><Register setAuthState={setAuthState} setUser={setUser}/></div>
+    } else {
+        return <div><Navbar/><Home user={user} setAuthState={setAuthState} setUser={setUser}/></div>
+    }
 }
 
 export default App;
